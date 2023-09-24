@@ -1,0 +1,23 @@
+CODECOMMIT
+# #Create a list of repositories in codecommit using a list of names in a text file
+# while read -r repo; do aws codecommit create-repository --repository-name "$repo"; done < repositorieslist.txt
+# #Delete all the repositories in codecommit
+# for repo in $(aws codecommit list-repositories --query 'repositories[].repositoryName' --output text); do echo "Deleting $repo"; aws codecommit delete-repository --repository-name $repo; done
+
+CREATE USERS TO LOG EC2 Instance:
+
+1 - Execute ssh-keygen -y -f sandbox.pem and copy that content (or add | pbcopy)
+2 - Log to your instance as the ec2-user and proceed to create the users:
+
+Sudo adduser Erica
+sudo su - Erica
+mkdir .ssh
+chmod 700 .ssh
+cd .ssh
+touch authorized_keys
+chmod 600 authorized_keys
+vim authorized_keys and paste the content of the step 1 or (echo "paste the content of step 1" > authorized_keys
+
+3 - Using HTTPS
+git config --global credential.helper '!aws codecommit credential-helper $@'
+git config --global credential.UseHttpPath true

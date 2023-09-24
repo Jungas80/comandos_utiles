@@ -1,0 +1,3 @@
+GITHUB CLI
+#gh repo list
+#gh repo create project-sandbox --private --description="repo to use with sandbox and terraform" --gitignore="Terraform"

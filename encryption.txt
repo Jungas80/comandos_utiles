@@ -1,0 +1,10 @@
+####### ENCRYPTION OF EC2 ########
+
+aws ec2 create-image --instance-id i-004a4af0eb04353f9 --name "Unencrypted-AMI" --description "An image of my unencrypted instance"
+
+aws ec2 copy-image --source-region us-east-1 --source-image-id ami-0817645d4e7e6bbd9 --name "Encrypted-AMI" --encrypted
+
+aws ec2 run-instances --image-id ami-0c0e55adfbab183b7 --instance-type t2.micro --key-name sandbox
+
+
+aws rds copy-db-snapshot --source-db-snapshot-identifier [Your-DB-Snapshot-Identifier] --target-db-snapshot-identifier [Your-Encrypted-DB-Snapshot-Identifier] --copy-tags
