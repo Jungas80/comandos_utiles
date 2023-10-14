@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: comandos_utiles
+  description: Lista de diferentes comandos útiles para operar con AWS
+  tags:
+    - Utils
+    - website
+spec:
+  type: service
+  lifecycle: production
+  owner: Jungas80
